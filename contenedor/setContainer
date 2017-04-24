@@ -1,0 +1,50 @@
+#!/bin/bash
+source .conf
+
+sudo touch $ERRLOG
+sudo touch $LOG
+sudo chown -R $USUARIO:$GRUPO $LOGPATH
+
+if [ ! -f $KEYFILE ]; then
+	echo "Creando llave por favor espere..."
+	$VERA --create-keyfile $KEYFILE
+fi
+
+if [ ! -f $RDATA ]; then
+	echo "Creando semilla por favor espere..."
+	$VERA --create-keyfile $RDATA
+fi
+
+
+if [ -f $CONTAINER ]; then
+	rm -f $CONTAINER
+	echo "Creando contenedor encriptado por favor espere..."
+	$VERA --create $CONTAINER --encryption=$ENCRIPTACION --volume-type=$VTYPE --filesystem=$FS --quick --size=$SIZE --hash=$HASH --keyfiles=$KEYFILE --password=$PASSWORD --random-source=$RDATA --verbose --non-interactive
+fi
+
+if [ ! -d $MOUNTPOINTTEMP ];then
+	sudo mkdir -p $MOUNTPOINTTEMP 2>>$ERRLOG
+	sudo chown -R $USUARIO:$GRUPO $MOUNTPOINTTEMP 2>>$ERRLOG
+fi
+
+echo "Montando contenedor encriptado por favor espere..."
+$VERA --mount $CONTAINER $MOUNTPOINTTEMP -p $PASSWORD -f -k $KEYFILE  --non-interactive 2>> $ERRLOG
+
+echo "Limpiando contenedor encriptado por favor espere..."
+sudo rm -rfd $MOUNTPOINTTEMP/* 2>>$ERRLOG
+
+echo "Copiando archivos al contenedor por favor espere..."
+sudo cp -r $SOURCEPATH $MOUNTPOINTTEMP
+
+sudo chown -R $USUARIO:$GRUPO $MOUNTPOINTTEMP
+
+sleep 10 
+
+$VERA -d $MOUNTPOINTTEMP -f --non-interactive
+
+sudo rm -rf $MOUNTPOINTTEMP
+
+date +"%s" > version
+md5sum contenedor > md5
+
+echo "Contenedor terminado!"

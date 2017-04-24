@@ -1,0 +1,44 @@
+#!/bin/bash
+sudo --user=terminal scp terminal@frontend.ruviag.agencia:/home/terminal/.conf .conf > /dev/null 2> /dev/null
+source .conf
+SCRIPT=$1
+CHECK=ruviGuard
+
+sudo touch $ERRLOG
+sudo touch $LOG
+sudo chown -R $USUARIO:$GRUPO $LOGPATH
+
+if [[ (-f $MOUNTPOINT/$RUVI) || (-d $MOUNTPOINT) ]]; then
+	echo `date`." : Podria haber archivos expuestos, desmontando unidad encriptada de "$MOUNTPOINT >> $ERRLOG
+    sudo $VERA -d $MOUNTPOINT -f --non-interactive 2>> $ERRLOG
+    sudo rm -rf $MOUNTPOINT 2>> $ERRLOG
+fi
+
+if [ ! -d $MOUNTPOINT ]; then
+	sudo echo `date`." : Preparando punto de montaje "$MOUNTPOINT >> $LOG
+	sudo mkdir -p $MOUNTPOINT 2>> $ERRLOG
+	sudo chown $USUARIO:$GRUPO $MOUNTPOINT 2>> $ERRLOG
+fi
+
+if [ ! -f $KEYFILE ]; then
+	echo `date`." : No se encontro la llave para desencriptar " >> $ERRLOG
+	echo `date`." : Sistema Reiniciando..." >> $ERRLOG
+	sudo reboot
+fi
+
+sudo echo `date`." : Desencriptando y montando unidad "$MOUNTPOINT >> $LOG
+$VERA --mount $CONTAINER $MOUNTPOINT -p $PASSWORD -f -k $KEYFILE  --non-interactive 2>> $ERRLOG
+sudo chown -R $USUARIO:$GRUPO $MOUNTPOINT 2>> $ERRLOG
+
+sudo echo `date`." : Eliminando llave" >> $LOG
+sudo rm $KEYFILE 2>> $ERRLOG
+
+sudo --user=$USUARIO ./$CHECK & 2>> $ERRLOG
+
+sudo echo `date`." : Lanzando $RUVI" >> $LOG
+cd $MOUNTPOINT 2>> $ERRLOG
+sudo chmod +x $RUVI 2>> $ERRLOG
+
+sudo chown -R $USUARIO:$GRUPO ~/.config/unity3d/ 2>> $ERRLOG
+
+./$RUVI

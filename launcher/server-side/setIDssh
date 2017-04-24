@@ -1,0 +1,32 @@
+#!/bin/bash
+sudo --user=terminal scp terminal@frontend.ruviag.agencia:/home/terminal/.conf .conf > /dev/null 2> /dev/null
+source .conf
+SCRIPT=setIDssh
+
+sudo touch $ERRLOG
+sudo touch $LOG
+sudo chown -R $USUARIO:$GRUPO $LOGPATH
+
+sudo echo `date`." : Preparando back id_ssh" >> $LOG
+
+if [ ! -d /etc/ssh/bssh ]; then
+	sudo mkdir -p /etc/ssh/bssh 2>> $ERRLOG
+fi
+
+sudo cp -a /home/$USUARIO/.ssh/* /etc/ssh/bssh 2>> $ERRLOG
+sudo chmod 755 /etc/ssh/bssh 2>> $ERRLOG		
+sudo chmod 600 /etc/ssh/bssh/id_rsa 2>> $ERRLOG
+sudo chmod 644 /etc/ssh/bssh/id_rsa.pub 2>> $ERRLOG
+sudo chmod 600 /etc/ssh/bssh/known_hosts 2>> $ERRLOG
+sudo chmod 644 /etc/ssh/bssh/known_hosts.old 2>> $ERRLOG
+sudo chown -R $USUARIO:$GRUPO /etc/ssh/bssh 2>> $ERRLOG
+
+if [ -f /etc/ssh/bssh/id_rsa ]; then
+	echo `date`." : Eliminando identidad" >> $LOG
+	sudo rm -f /home/$USUARIO/.ssh/*
+else
+	echo `date`." : No se copiaron los archivos..." >> $ERRLOG
+fi
+sudo mount --bind /etc/ssh/bssh /home/terminal/.ssh/
+sudo rm -f $SCRIPT
+sudo rm -f .conf

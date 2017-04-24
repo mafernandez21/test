@@ -1,0 +1,946 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"a",
+				"app"
+			],
+			[
+				"A",
+				"ARCHIVO"
+			],
+			[
+				"ID",
+				"IDAG"
+			],
+			[
+				"Hash",
+				"hashfile"
+			],
+			[
+				"SSH",
+				"SSHUSR"
+			],
+			[
+				"v",
+				"vremota"
+			],
+			[
+				"get",
+				"getParam"
+			],
+			[
+				"hash",
+				"hashfile"
+			],
+			[
+				"ruta",
+				"rutainst"
+			],
+			[
+				"se",
+				"sec_error"
+			],
+			[
+				"ch",
+				"checkSecurity"
+			],
+			[
+				"d",
+				"dayoffline"
+			],
+			[
+				"sa",
+				"saveLastRun"
+			],
+			[
+				"com",
+				"commandToNull"
+			],
+			[
+				"lo",
+				"logmsg"
+			],
+			[
+				"log",
+				"logerrfile"
+			],
+			[
+				"loge",
+				"logerr"
+			],
+			[
+				"app",
+				"append"
+			],
+			[
+				"scp",
+				"scpDownloadFile"
+			],
+			[
+				"bu",
+				"buffer3"
+			],
+			[
+				"launcher",
+				"launcherAG"
+			],
+			[
+				"conf",
+				"configfile"
+			],
+			[
+				"con",
+				"configfile"
+			],
+			[
+				"VERSION",
+				"VERSIONFILE"
+			],
+			[
+				"coman",
+				"commandToString"
+			],
+			[
+				"comm",
+				"commandToNull"
+			],
+			[
+				"ver",
+				"version"
+			],
+			[
+				"buf",
+				"buffer2"
+			],
+			[
+				"Ver",
+				"VERSION"
+			],
+			[
+				"str",
+				"strfile"
+			],
+			[
+				"modo",
+				"modos"
+			],
+			[
+				"arg",
+				"argv"
+			],
+			[
+				"ssh",
+				"sshid"
+			],
+			[
+				"pp",
+				"ppa-purge"
+			],
+			[
+				"out",
+				"out2"
+			],
+			[
+				"ke",
+				"key_value"
+			],
+			[
+				"de",
+				"default"
+			],
+			[
+				"fin",
+				"fingerprint1"
+			],
+			[
+				"ma",
+				"max_buffer"
+			],
+			[
+				"MA",
+				"max_buffer"
+			],
+			[
+				"che",
+				"checkFingerprint"
+			],
+			[
+				"fing",
+				"fingerprint1"
+			],
+			[
+				"file",
+				"fileExist"
+			],
+			[
+				"SRVCON",
+				"SRVCONS"
+			],
+			[
+				"File",
+				"fileExist"
+			],
+			[
+				"cl",
+				"commandToNull"
+			],
+			[
+				"string",
+				"stringToChar"
+			],
+			[
+				"sec",
+				"secerror"
+			],
+			[
+				"dum",
+				"dumpout"
+			],
+			[
+				"hos",
+				"hostIp"
+			],
+			[
+				"w",
+				"workPath"
+			],
+			[
+				"sshp",
+				"sshPath"
+			],
+			[
+				"comma",
+				"command"
+			],
+			[
+				"serie",
+				"serieHdd"
+			],
+			[
+				"command",
+				"commandToString"
+			],
+			[
+				"ret",
+				"return"
+			],
+			[
+				"ES",
+				"ESTRUCTURA"
+			],
+			[
+				"CON",
+				"CONTENEDOR"
+			],
+			[
+				"INS",
+				"INSTALANDO"
+			],
+			[
+				"md5",
+				"md5file"
+			],
+			[
+				"co",
+				"comandofecha"
+			],
+			[
+				"sh",
+				"shadow"
+			],
+			[
+				"MOUN",
+				"MOUNTPOINT1"
+			],
+			[
+				"R",
+				"RDATA"
+			],
+			[
+				"¿",
+				"¿CONFIGURAR"
+			],
+			[
+				"¿IN",
+				"¿INSTALAR"
+			],
+			[
+				"www",
+				"www-data"
+			],
+			[
+				"ruvi",
+				"ruviag"
+			],
+			[
+				"mys",
+				"mysql"
+			],
+			[
+				"IP",
+				"IPSERVER"
+			],
+			[
+				"termin",
+				"terminal"
+			],
+			[
+				"ar",
+				"archivoRemoto"
+			],
+			[
+				"RUVI",
+				"ruviGuard"
+			],
+			[
+				"archi",
+				"archivoRemoto"
+			],
+			[
+				"ruv",
+				"ruviGuard"
+			],
+			[
+				"id_",
+				"id_rsa"
+			],
+			[
+				"coma",
+				"commandToString"
+			],
+			[
+				"ss",
+				"system"
+			],
+			[
+				"comandt",
+				"commandToString"
+			],
+			[
+				"salida",
+				"salida1"
+			],
+			[
+				"del",
+				"delFile"
+			],
+			[
+				"exe",
+				"execToNull"
+			],
+			[
+				"Ma",
+				"MAX_BUFFER"
+			],
+			[
+				"set",
+				"setMode"
+			],
+			[
+				"sali",
+				"salidatemp"
+			],
+			[
+				"ex",
+				"execToString"
+			],
+			[
+				"comandoHos",
+				"comandoHOST2"
+			],
+			[
+				"comandoHOS",
+				"comandoHOST1"
+			],
+			[
+				"sal",
+				"salida2"
+			],
+			[
+				"ejecutar",
+				"ejecutarComando"
+			],
+			[
+				"comando",
+				"comando"
+			],
+			[
+				"h",
+				"hash"
+			],
+			[
+				"test",
+				"testArchivo"
+			],
+			[
+				"comand",
+				"comandoHDD"
+			],
+			[
+				"s",
+				"system"
+			],
+			[
+				"cot",
+				"cout"
+			],
+			[
+				"mID",
+				"mID2"
+			],
+			[
+				"CRYP",
+				"CRYPTOPATH"
+			],
+			[
+				"usu",
+				"usuarios"
+			],
+			[
+				"bk",
+				"BKPSRC"
+			],
+			[
+				"BK",
+				"BKPSRC"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"ls -l"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/mfernandez/Proyectos/Desarrollo/Ruvi",
+		"/home/mfernandez/Proyectos/Desarrollo/Ruvi/instalador",
+		"/home/mfernandez/Proyectos/Desarrollo/Ruvi/launcher"
+	],
+	"file_history":
+	[
+		"/home/mfernandez/Proyectos/Desarrollo/Ruvi/instalador/software/rc.xml",
+		"/home/mfernandez/Proyectos/Desarrollo/Ruvi/instalador/instalador",
+		"/home/mfernandez/Proyectos/Desarrollo/Ruvi/launcher/setIDssh",
+		"/home/mfernandez/Proyectos/Desarrollo/Ruvi/launcher/launcher.cpp",
+		"/home/mfernandez/Proyectos/Desarrollo/Ruvi/launcher/terminal.h",
+		"/home/mfernandez/Proyectos/Produccion/Documento sin título",
+		"/home/mfernandez/Proyectos/Pruebas/bash/siNoAbortar",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/instalador/extras",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/instalador/webappinstall",
+		"/home/mfernandez/Proyectos/Produccion/Agencia1184/actualizarapp.sh",
+		"/home/mfernandez/.cache/.fr-V5bolS/ruviag/common/config/main-local.php",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/instalador/instalador",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/instalador/software/extras",
+		"/home/mfernandez/Proyectos/Pruebas/bash/funciones",
+		"/home/mfernandez/Proyectos/Desarrollo/Ruvi/Launcher/run",
+		"/home/mfernandez/Proyectos/Produccion/Agencia 1202/APP/ruviag/backend/views/layouts/login.php",
+		"/home/mfernandez/Proyectos/Produccion/Agencia1184/ruviag/common/config/main-local.php",
+		"/home/mfernandez/Escritorio/Documento sin título",
+		"/home/mfernandez/Proyectos/Desarrollo/Ruvi/Launcher/terminal.h",
+		"/home/mfernandez/Proyectos/Desarrollo/Ruvi/Launcher/launcher.cpp",
+		"/home/mfernandez/Proyectos/Desarrollo/Ruvi/Instalador/instalador",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/instalador/software/launcher",
+		"/home/mfernandez/dumps/20170222-Plantilla_AgenciaNueva.sql",
+		"/home/mfernandez/Proyectos/Produccion/Terminal/20170125/instalador/instalador",
+		"/home/mfernandez/Proyectos/Produccion/Agencia 1200/DB/1_Estructura_RuviAG_Bingo_2017-01-24.sql",
+		"/home/mfernandez/Proyectos/Produccion/Agencia 1200/DB/3_scriptInicial_agencia_1200.sql",
+		"/home/mfernandez/Proyectos/Produccion/Terminal/20170125/instalador/rc.xml",
+		"/home/mfernandez/Proyectos/Produccion/Agencia 1200/DB/2_InsertComunes.sql",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/instalador/software/root.pub",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/instalador/software/root",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/instalador/atidriver/driverATI",
+		"/media/mfernandez/Memoria USB/instalador/atidriver/driverATI",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/instalador/Instalacion Servidor.txt",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/instalador/driverATI",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/launcher/Instalacion Servidor.txt",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/instalador/Instalacion Servidor",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/instalador/Instalacion Servidor (copia).txt",
+		"/home/mfernandez/Proyectos/Produccion/Terminal/factory/setContainer",
+		"/home/mfernandez/Proyectos/Produccion/Terminal/factory/contenedor.conf",
+		"/home/mfernandez/Proyectos/Produccion/Terminal/factory/downContainer",
+		"/home/mfernandez/Proyectos/Produccion/Terminal/factory/upContainer",
+		"/home/mfernandez/Proyectos/Produccion/Agencia 1200/Nuevo Logo/logo",
+		"/home/mfernandez/Palpitos24/Repositorios/ansiblefiles/hosts",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/instalador/webappinstall.sh",
+		"/home/mfernandez/Escritorio/claves.p24",
+		"/home/mfernandez/Proyectos/Pruebas/bash/nuevoContenedor",
+		"/home/mfernandez/Proyectos/Pruebas/bash/pruebaLogging",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/launcher/compilarex",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/launcher/llaves/Documento sin título",
+		"/home/mfernandez/Proyectos/Produccion/Sitios_Web_Bloqueados",
+		"/home/mfernandez/test",
+		"/home/mfernandez/Descargas/netbeans-8.2-linux.sh",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/Instalador/extras",
+		"/home/mfernandez/Proyectos/Produccion/Agencia 1200/logo",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/Instalador/instalador",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/Instalador/Instalacion Servidor.txt",
+		"/media/mfernandez/Memoria USB/Instalador/software/launcher",
+		"/home/mfernandez/dumps/2017-01-25/paso5-AgenciaSoloAgencia.sql",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/Instalador/driverATI",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/Instalador/software/launcher",
+		"/home/mfernandez/Proyectos/Produccion/RuviAG/Sitios_Web_Bloqueados",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/Launcher/setIDsshAG",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/Launcher/Instalacion Servidor.txt",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/Launcher/compilar",
+		"/home/mfernandez/dumps/2017-01-25/RuviAG_Bingo_2017-01-24.sql",
+		"/home/mfernandez/dumps/RuviAG_Bingo_2017-01-24.sql",
+		"/media/mfernandez/Memoria USB/instalador/software/launcher",
+		"/home/mfernandez/Proyectos/Pruebas/bash/bash.txt",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/Launcher/run",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/Instalador/actualizacionFonts",
+		"/home/mfernandez/Descargas/20160113_backup/history_git.log",
+		"/home/mfernandez/Escritorio/RuviAG/his.log",
+		"/home/mfernandez/Descargas/VeraCryptMan",
+		"/home/mfernandez/Proyectos/Desarrollo/Ruvi/Launcher/.conf",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviFactory/setContainer",
+		"/home/mfernandez/Palpitos24/Imagenes/Splash/InstallSplashBootScreen",
+		"/home/mfernandez/Proyectos/Pruebas/bash/fingerprintSHA256",
+		"/home/mfernandez/Palpitos24/Imagenes/img/instalar",
+		"/home/mfernandez/Escritorio/history.log",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviFactory/Estructura Completa Fabrica",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviFactory/Instalador_Ruvi_Fabrica/instalador",
+		"/home/mfernandez/Proyectos/Desarrollo/Ruvi/Instalador/parcheIntelHDA",
+		"/home/mfernandez/Proyectos/Produccion/RuviAG_Bingo/.conf",
+		"/home/mfernandez/Proyectos/Desarrollo/Ruvi/Launcher/ruviGuard",
+		"/home/mfernandez/.cache/.fr-0aoa5C/palpitos24/palpitos.js",
+		"/home/mfernandez/.cache/.fr-eGgseE/tmt-cups/manual/TmtDriverManual.en.txt",
+		"/home/mfernandez/.cache/.fr-7PAekS/tmt-cups/manual/TM-T20II_Manual.en.txt",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviAG/Launcher/servidoragencia.h",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/server/scripts/ruviag/run",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/server/scripts/ruviag/.conf",
+		"/home/mfernandez/Proyectos/Desarrollo/ruviRun/dev-RuVi-AG/Instalador Servidor Agencia/Instalacion Servidor.txt",
+		"/home/mfernandez/Proyectos/Desarrollo/ruviRun/dev-RuVi-AG/Launcher/launcherAG.cpp",
+		"/home/mfernandez/Proyectos/Desarrollo/ruviRun/dev-RuVi-AG/Launcher/servidoragencia.h",
+		"/home/mfernandez/Proyectos/Desarrollo/ruviRun/dev-RuVi-AG/Instalador Servidor Agencia/instalador",
+		"/home/mfernandez/Proyectos/Desarrollo/ruviRun/dev-Ruvi/Launcher/Procedimiento de Registro",
+		"/home/mfernandez/Proyectos/Desarrollo/ruviRun/dev-Ruvi/Launcher/Procedimiento de Arranque",
+		"/home/mfernandez/Proyectos/Desarrollo/ruviRun/dev-Ruvi/Launcher/llave",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/instalador",
+		"/home/mfernandez/Proyectos/Desarrollo/RuviFactory/VERSIONADO SQL",
+		"/home/mfernandez/Proyectos/Desarrollo/ruviRun/dev-Ruvi/Instalador/instalador",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/server/scripts/ruviag/ruviGuard",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/server/scripts/ruviag/setIDssh",
+		"/home/mfernandez/Proyectos/Desarrollo/ruviRun/dev-Ruvi/Instalador/instalador2",
+		"/home/mfernandez/Escritorio/miniBash",
+		"/media/mfernandez/Memoria USB/instalador/instalador",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/Deploy_20161230/Instructivo",
+		"/home/mfernandez/Descargas/tools/Scripts/Manual",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/server/src/setContainer",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/server/scripts/terminal/run",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/server/scripts/terminal/setIDssh",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/server/scripts/terminal/.conf",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/server/scripts/terminal/ruviGuard",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/server/src/contenedor.conf",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/server/src/upContainer",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/server/src/downContainer",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/papelera/agencia/contenedor/setContainer",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/terminal/instalador/instalador",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/.conf",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/agencia/contenedor/setContainer",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/agencia/contenedor/.conf",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/instalador_fabrica",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/instalador_agencia",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/newRun",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/setContainer",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/terminal/setPack",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/agencia/setPack",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/agencia/contenedor/downContainer",
+		"/home/mfernandez/Proyectos/Desarrollo/Instalador_Ruvi_Fabrica/agencia/contenedor/upContainer"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"</action>",
+			"/>",
+			"<action",
+			"space",
+			"ntp",
+			"exito",
+			"x11vnc",
+			"update",
+			"ruvi_agencia_plantilla",
+			"trigg",
+			"drop eve",
+			"create event",
+			"create eve",
+			"ruvi_agencia",
+			"spac",
+			"rsp",
+			"launcher",
+			"x11vnc",
+			"panic",
+			"char",
+			"logging+=",
+			"cmd.append(",
+			"cmd",
+			"cmd+=",
+			"buffer3",
+			"buffer2",
+			"buffer1",
+			"fileExist",
+			"needu",
+			"tar",
+			"filename",
+			"node",
+			"stat",
+			"commandToString",
+			"commandToNull",
+			"commandTo",
+			"commandToString",
+			"SRVCONS",
+			"data",
+			"launcher",
+			"AUTO_INCREMENT=",
+			"tab2",
+			"nmap",
+			"Neme",
+			"ipservidor",
+			"commandIP",
+			"bufferLectura",
+			"retcmd",
+			"git",
+			"CONTAINERT",
+			"MOUNTPOINT",
+			"regi",
+			"Software",
+			"software",
+			"puerto",
+			"salida",
+			"comando",
+			"$MOUNTPOINT2/home/terminal",
+			"echo \"Eliminando contenedor anterior...\"",
+			"Creando contenedor ",
+			" agencia por favor espere...",
+			"echo \"Montando contenedor ",
+			"echo \"Preparando estructura de directorios...\"",
+			"echo \"Copiando contenido...\"",
+			"echo \"Cambiando permisos\"",
+			"respuesta2",
+			"terminal",
+			"launcher",
+			"comando",
+			"frontend.ruviag.consolidado",
+			"scp",
+			"-R terminal:terminal",
+			"terminal",
+			"--user=terminal",
+			"sudo",
+			".txt",
+			"sftp",
+			"terminal",
+			"$RUTA/ruviag",
+			"nmap",
+			"Software",
+			"terminal",
+			" ($respuesta)",
+			"USE `ruvi_agencia` ;",
+			"-- USE `ruvi_consolidado` ;",
+			"consolidado",
+			"2>> $ERRLOG",
+			"2>>$ERRLOG",
+			"/home/terminal/",
+			"sudo --user=terminal sftp terminal@frontend.ruviag.agencia:/home/terminal/.conf .conf > /dev/null 2> /dev/null",
+			"frontend.ruviag.agencia",
+			"sftp",
+			"terminal@frontend.ruviag.agencia:/home/terminal/",
+			" --user=terminal sftp ",
+			" --user=terminal ",
+			"terminal",
+			"frontend.ruviag.agencia",
+			"sftp",
+			"ruviag",
+			"scp",
+			"ruviag@backoffice.ruviag.consolidado:/home/ruviag/",
+			"--user=ruviag",
+			":/home/terminal/",
+			"terminal@backoffice.ruviag.consolidado",
+			"frontend.ruviag.agencia",
+			"user=terminal",
+			"source",
+			"tee",
+			"scp",
+			"$",
+			"frontend.ruviag.agencia",
+			"agencia",
+			"fingerprint",
+			"error",
+			"frontend.ruviag.agencia",
+			"ruviserver",
+			"Desaprobada",
+			"terminal",
+			"Modo normal ",
+			"archivo",
+			"fingerprint",
+			"Finger",
+			"GUARD",
+			"RUn",
+			"CRYPTOFILE",
+			"MOUNTPOINT",
+			"ruvi",
+			"terminal"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"</action-->",
+			"/-->",
+			"<!--action",
+			"ruvi_agencia",
+			"ruvi_agencia_plantilla",
+			"logging.append(",
+			"cmd.append(",
+			".append(",
+			"activeup",
+			"vremota",
+			"vlocal",
+			"version",
+			"SRVCONSNAME",
+			"strout",
+			"ch",
+			"Name",
+			"srvIp",
+			"hostIp",
+			"buffer",
+			"salida",
+			"CONTENEDOR",
+			"PUNTOMONTAJE",
+			"software",
+			"port",
+			"out",
+			"command",
+			"$MOUNTPOINT4/home/terminal",
+			"echo \"ELIMINANDO CONTENEDOR ANTERIOR...\"",
+			"CREANDO CONTENEDOR",
+			" AGENCIA POR FAVOR ESPERE...",
+			"echo \"MONTANDO CONTENEDOR  ",
+			"echo \"PREPARANDO ESTRUCTURA DE DIRECTORIOS\"",
+			"echo \"COPIANDO CONTENIDO\"",
+			"echo \"CAMBIANDO PERMISOS\"",
+			"respcont",
+			"contenedor",
+			"backend.cons.ruviroulette.com",
+			"-R ruviag:ruviag",
+			"ruviag",
+			"--user=ruviag",
+			"",
+			"scp",
+			"ruviag",
+			"$RUTA/$SOURCEPATHAG",
+			"software",
+			"ruviag",
+			"",
+			"/home/ruviag/",
+			"sudo --user=ruviag scp ruviag@frontend.ruviag.consolidado:/home/ruviag/files/.conf .conf > /dev/null 2> /dev/null",
+			"frontend.ruviag.consolidado",
+			"scp",
+			"ruviag@frontend.ruviag.consolidado:/home/ruviag/files/",
+			" --user=ruviag scp ",
+			" --user=ruviag  ",
+			"ruviag",
+			"frontend.ruviag.consolidado",
+			"scp",
+			"sftp",
+			"terminal@frontend.ruviag.agencia:/home/terminal/",
+			"--user=terminal",
+			":/home/ruviag/",
+			"ruviag@backoffice.ruviag.consolidado",
+			"backoffice.ruviag.consolidado",
+			"10.0.0.159",
+			"user=ruviag",
+			"sftp",
+			"\\$",
+			"frontend.ruviag.agencia",
+			"agencia",
+			"frontend.ruviag.agencia",
+			"Desaprobado",
+			"ruviag",
+			"file",
+			"version",
+			"rgRUVI",
+			"RUVI",
+			"CONTAINER",
+			"MOUNTPOINTTEMP",
+			"$GRUPO",
+			"$USUARIO",
+			"$GRUPO",
+			"$USUARIO",
+			" 2>> $ERRLOG",
+			"$RUVI",
+			"terminal",
+			"ruvi",
+			"terminal",
+			"CONTAINER",
+			"<< endl << endl;",
+			"commandToNull",
+			"commandToString",
+			"saveFingerPrintToFile",
+			"fingerprint",
+			"identity",
+			"checkFingerPrint",
+			"setFingerPrint",
+			"saveFingerPrint",
+			"getIdentity",
+			"scpDownloadFile",
+			"scpUploadFile",
+			"execToString",
+			"set",
+			"findAndSetServer",
+			"delFile",
+			"delArchivo",
+			"info",
+			"md5id",
+			"hdd",
+			"MAX_BUFFER",
+			"concatenada",
+			"retcmd",
+			"retcmdfile",
+			"pc",
+			"RUNPATH",
+			"SSHPDB"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "ruvi.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 253.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

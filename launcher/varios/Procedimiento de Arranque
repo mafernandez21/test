@@ -1,0 +1,15 @@
+Launcher (Ruvi/RuviAG)
+__OCULTAR MENSAJES DE ERROR (-_-)
+
+__Detectar chroot
+
+__Comprobar el fingerprint
+
+__Comprobar la version (fecha del contenedor)
+	__Descargar
+
+__Descargar los scripts
+	__Instalar/Desinstalar las variables de entorno
+	__Control & Arranque
+		
+__Borrar Scripts

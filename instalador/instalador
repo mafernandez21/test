@@ -1,0 +1,317 @@
+#!/bin/bash
+function _menuParches()
+{
+        clear
+        echo "PARCHES"
+        echo "Selecciona un parche:"
+        echo "1) Sonido IntelHDA"
+        echo "2) Bangho"
+        echo "3) MSI"
+        echo "4) PlaySoft"
+        echo "9) Ninguno"
+        echo "Elija una Opcion:"
+        echo ""
+}
+
+function getlastaction(){
+    ARCHIVO=accion.log
+    if [ ! -f $ARCHIVO ]; then
+        la="-"
+    else
+        echo -e "ULTIMA ACCION:" $(echo `tail -n1 $ARCHIVO |  cut -d ":" -f 2 | awk {'print $1'}`)
+    fi
+}
+
+function setlastaction(){
+    ARCHIVO=accion.log
+    if [ ! -f $ARCHIVO ]; then
+        touch $ARCHIVO
+    fi
+        echo $(echo "["`date +%Y.%d.%m.%H.%M.%S`"]"): $(echo -e $1"\n") | sudo tee -a $ARCHIVO
+}
+###################################################################################################################################################################################################################
+clear
+echo -e "*************************************************\n"
+echo -e "BIENVENIDO AL INSTALADOR DE LA TERMINAL DE JUEGO \n"
+echo -e "***************************************************"
+RUTA=`pwd`
+ID=`id -u`
+if [ $ID -ne 0 ]; then
+  echo -e "DEBE EJECUTAR CON SUDO, ""sudo """$0
+  exit 1
+fi
+###################################################################################################################################################################################################################
+echo
+_menuParches
+opc=0
+# bucle que no se detiene hasta pulsar el numero nueve
+until [ $opc -eq 9 ]
+do
+    case $opc in
+        1)
+            /home/terminal/instalador/software/parches/parcheIntelHDA
+            sleep 3
+            clear
+            echo -e "PARCHE INSTALADO REINICIANDO EN 5 SEGUNDOS"
+            sleep 5
+            sudo reboot
+            ;;
+        2)
+            /home/terminal/instalador/software/parches/parcheBangho
+            sleep 3
+            clear
+            echo -e "PARCHE INSTALADO REINICIANDO EN 5 SEGUNDOS"
+            sleep 5
+            sudo reboot
+            ;;
+        3)
+            /home/terminal/instalador/software/parches/parcheMSI
+            sleep 3
+            clear
+            echo -e "PARCHE INSTALADO REINICIANDO EN 5 SEGUNDOS"
+            sleep 5
+            sudo reboot
+            ;;
+        4)
+            /home/terminal/instalador/software/parches/parchePlaySoft
+            sleep 3
+            clear
+            echo -e "PARCHE INSTALADO REINICIANDO EN 5 SEGUNDOS"
+            sleep 5
+            sudo reboot
+            ;;
+        *)
+            _menuParches
+            ;;
+    esac
+    read opc
+done
+clear
+
+echo $(getlastaction)
+read -p "¿QUE TEREA DESEA RELIAZAR? (I)nstalar - (R)egistrar - (P)roduccion - (A)bortar: " -n 1 -r respuesta
+echo
+if [[ $respuesta =~ ^[iI]$ ]] ; then
+    echo $(setlastaction "INICIANDO INSTALACION BASE... \n")
+        sleep 1
+        apt-get update
+        apt -y install sshpass openbox obconf obmenu openssh-server vim-nox x-window-system alsa-base alsa-firmware-loaders alsa-tools-gui feh hwinfo nmap mc
+        echo $(setlastaction "CONFIGURANDO SCRIPT DE INICIO \n")
+        echo '#!/bin/bash
+        /root/bin/inicio.sh
+        exit 0
+        ' > /etc/rc.local
+        chmod +x /etc/rc.local
+        #mkdir -p /root/bin
+        #echo '#!/bin/bash
+        #' > /root/bin/inicio.sh
+        #chmod +x /root/bin/inicio.sh
+        #SCRIPTINICIO=/root/bin/inicio.sh
+        if [ ! -d /root/bin ];then
+            sudo mkdir -p /root/bin
+        fi
+        if [ ! -f /root/bin/inicio.sh ];then
+            echo '#!/bin/bash' > /root/bin/inicio.sh
+            chmod +x /root/bin/inicio.sh
+        fi
+        sudo chown -R terminal:terminal /root/bin
+        SCRIPTINICIO=/root/bin/inicio.sh
+
+    echo $(setlastaction "\n CONFIGURANDO VOLUMEN \n")
+    sleep 3
+        amixer -c 0 set Master unmute
+        amixer -c 0 set Master 87%
+        amixer -c 1 set Master unmute
+        amixer -c 1 set Master 87%
+        echo 'amixer -c 0 set Master unmute' >> $SCRIPTINICIO 2> /dev/null
+        echo 'amixer -c 0 set Master 87%'  >> $SCRIPTINICIO 2> /dev/null
+        echo 'amixer -c 1 set Master unmute' >> $SCRIPTINICIO 2> /dev/null
+        echo 'amixer -c 1 set Master 87%'  >> $SCRIPTINICIO 2> /dev/null
+    
+    echo $(setlastaction "CONFIGURANDO ACCESO REMOTO \n")
+    sleep 3
+        sed -i -e "s/Port 22/Port 2424/" /etc/ssh/sshd_config
+        echo "ansible:x:2000:2001::/home/ansible:/bin/bash" >> /etc/passwd
+        echo 'ansible:$6$YnNVcrrd$GipIbXdnjSHIpBvu6gqLMCYYUndx5TsoSayqNeSNyaXZcqLh2f4JRPh4AyV727KDkjlE4tBeKGV9r.9V.lCak1:17144:0:99999:7:::' >> /etc/shadow
+        echo "ansible:x:2001:" >> /etc/group
+        mkdir -p /home/ansible
+        chown -R ansible:ansible /home/ansible
+        echo 'ansible ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/01_ansible
+        service ssh restart
+        echo "terminal ALL=(ALL:ALL) ALL
+        %terminal  ALL=(ALL:ALL) NOPASSWD:ALL
+        " > /etc/sudoers.d/02_terminal
+
+    echo $(setlastaction "CONFIGURANDO AUTOINICIO \n")
+    sleep 3
+        mkdir -p /etc/systemd/system/getty@tty1.service.d/
+        echo "[Service]
+        ExecStart=
+        ExecStart=-/sbin/agetty --autologin terminal --noclear %I 38400 linux
+        " > /etc/systemd/system/getty@tty1.service.d/autologin.conf
+        
+        echo
+        clear
+        read -p "¿HABILITAR PUNTERO DEL RATON AL INICIO? (S)i - (N)o : " -n 1 -r ratonrespuesta
+        echo
+        if [[ $ratonrespuesta =~ ^[sS]$ ]] ; then
+            echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+            ' > /home/terminal/.bash_profile
+        else
+            echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx -- -nocursor
+            ' > /home/terminal/.bash_profile
+        fi
+        systemctl enable getty@tty1.service
+
+    echo $(setlastaction "CONFIGURANDO TTY\n")
+    sleep 3
+        echo "Section \"ServerFlags\"
+            Option \"DontVTSwitch\" \"true\"
+        EndSection
+        " > /etc/X11/xorg.conf
+    
+    echo $(setlastaction "INSTALANDO RUVI \n")
+    sleep 2
+        mkdir -p /var/log/RuVi
+        touch /var/log/RuVi/ruvi-log.log
+        touch /var/log/RuVi/ruvi-errors.log
+        mkdir -p /etc/ssh/bssh
+        chown terminal:terminal /etc/ssh/bssh
+        cp launcher /home/terminal/
+        chown -R terminal:terminal /home/terminal/launcher
+        cp -r etc /
+        chown -R terminal:terminal /etc/RuVi
+        chmod 770 /home/terminal/launcher
+    clear
+    echo $(setlastaction "SE INICIARA LA INSTALACION DE VERACRYPT... \n")
+        sleep 3
+        software/veraCrypt/setup/veracrypt-1.18-setup-console-x64
+        sleep 1
+
+    echo $(setlastaction "CONFIGURANDO GRUB... \n")
+        cp /etc/RuVi/imagenes/desktop.png /boot/grub/pal24.png
+        sed -i -e "s/GRUB_CMDLINE_LINUX_DEFAULT=\"\"/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet\"/" /etc/default/grub
+        update-grub
+
+    echo $(setlastaction "INSTALACION FINALIZADA! \n")
+    echo -e "EN 10 SEGUNDOS SE REINICIA LA TERMINAL \n"
+        sleep 3
+        reboot
+
+elif [[ $respuesta =~ ^[rR]$ ]] ; then
+    echo $(setlastaction "REGISTRANDO Y CONFIGURANDO TERMINAL")
+    sleep 3
+    confirma="n"
+
+    while [[ $confirma =~ ^[nN]$ ]]; 
+        do
+            echo -e "INGRESE ID DE AGENCIA: "
+            read idagencia
+            echo -e "INGRESE NUMERO DE TERMINAL: "
+            read terminal
+        clear
+        echo -e "DATOS INGRESADOS"
+        echo -e "ID AGENCIA = "$idagencia
+        echo -e "TERMINAL   = "$terminal
+        echo
+        read -p "¿CONFIRMA LOS DATOS? (S)i - (N)o : " -n 1 -r confirma
+        if [[ $confirma =~ ^[sS]$ ]] ; then
+            confirma="s"
+            echo $(setlastaction "ID AGENCIA = "$idagencia)
+            echo $(setlastaction "TERMINAL   = "$terminal)
+            echo
+        else
+            confirma="n"
+            echo
+            clear
+        fi
+    done
+
+    echo -e "id"$idagencia"t"$terminal | tee /etc/hostname
+    cat /etc/hosts | grep -v 127.0.0.1 | sudo tee /etc/hosts.tmp 2>&1 1> /dev/null
+    cat /etc/hosts.tmp | grep -v 127.0.0.1 | sudo tee /etc/hosts 2>&1 1> /dev/null
+    echo -e "127.0.0.1 id"$idagencia"t"$terminal | tee -a /etc/hosts
+    echo -e "127.0.0.1 localhost" | tee -a /etc/hosts
+    hostname -F /etc/hostname
+
+    echo $(setlastaction "CONFIGURANDO NUMERO DE TERMINAL... \n")
+    echo -e "http://frontend.ruviag.agencia/ruvi/lobby\n$terminal" > /etc/RuVi/config.txt
+    /home/terminal/fpt
+    chown terminal:terminal /etc/RuVi/config.txt
+   
+    LOGTERMINAL="terminal"$terminal".txt"
+    touch /var/log/RuVi/$LOGTERMINAL    
+    chown -R terminal:terminal /var/log/RuVi
+        
+    clear
+    echo $(setlastaction "GENERANDO LLAVE SSH... \n")
+    sleep 3
+    rm -f /etc/ssh/bssh/*
+    rm -f /home/terminal/.ssh/*
+    MASCARA=24
+    IPLOCAL=`hwinfo --network | grep "Device File" | awk '/enp/{print $3}' | xargs ifconfig | awk '/inet addr/{print $2}' | cut -d ":" -f 2`
+    IPSERVER=`nmap -n -p 45654 --open $IPLOCAL/$MASCARA | grep report | awk '{print $5}'`
+    
+    echo -e "IP local: $IPLOCAL \n"
+    echo -e "IP server: $IPSERVER \n"
+    echo -e "Presione ENTER 3 veces cuando se lo solicite... \n"
+    sleep 3
+    sudo --user=terminal ssh-keygen
+    
+    PUERTO=22
+    cat /etc/hosts | grep -v frontend.ruviag.agencia > /etc/hosts.tmp
+    cp /etc/hosts.tmp /etc/hosts
+    echo "$IPSERVER frontend.ruviag.agencia" | tee -a /etc/hosts
+    sudo --user=terminal ssh-keyscan -p $PUERTO $IPSERVER >> ~/.ssh/known_hosts 
+    sudo --user=terminal ssh-keyscan -p $PUERTO frontend.ruviag.agencia >> ~/.ssh/known_hosts 
+    
+    echo $(setlastaction "AUTORIZANDO TERMINAL EN EL SERVIDOR... \n")
+    sleep 3
+    sudo --user=terminal sshpass -p palpitos ssh-copy-id terminal@frontend.ruviag.agencia
+
+    TEST=`sudo --user=terminal sshpass -p palpitos ssh terminal@frontend.ruviag.agencia 'exit'` 
+    if [ $? -ne 0 ]; then
+        echo "FALLO TEST"
+        exit 1
+    else
+        echo "TEST OK"
+    fi
+    sleep 1
+    /home/terminal/launcher --20160801
+
+elif [[ $respuesta =~ ^[pP]$ ]] ; then
+    echo $(setlastaction "CONFIGURANDO OPENBOX \n")
+    sleep 3
+    if [ ! -d /home/terminal/.config/openbox ];then
+        mkdir -p /home/terminal/.config/openbox
+    fi
+    chown -R terminal:terminal /home/terminal/.config
+    echo "feh --bg-scale /etc/RuVi/imagenes/desktop.png &
+    /home/terminal/launcher &" >> /home/terminal/.config/openbox/autostart
+    echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>
+    <openbox_menu xmlns=\"http://openbox.org/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://openbox.org/                 file:///usr/share/openbox/menu.xsd\">
+            <menu id=\"root-menu\" label=\"Openbox 3\">
+                    <item label=\"RuVi\">
+                            <action name=\"Execute\">
+                                    <execute>/home/terminal/launcher</execute>
+                            </action>
+                    </item>
+                    <separator/>
+                    <item label=\"Exit\">
+                            <action name=\"Exit\"/>
+                    </item>
+            </menu>
+    </openbox_menu>
+    " > /home/terminal/.config/openbox/menu.xml
+    chown -R terminal:terminal /home/terminal/.config
+    cp -f software/rc.xml /etc/xdg/openbox/rc.xml
+    echo $(setlastaction "TERMINAL EN MODO PRODUCCION")
+    echo -e "INSTALACION FINALIZADA! \n"
+    echo -e "EN 5 SEGUNDOS SE REINICIA LA TERMINAL \n"
+    sleep 5
+    RUTA=`pwd`
+    cd .. && rm -r $RUTA
+    reboot
+else
+    exit 0
+fi

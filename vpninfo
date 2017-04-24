@@ -1,0 +1,60 @@
+#!/bin/bash
+
+SESSIONID=
+IPVPN=
+
+mkdir -p /root/temp/
+/usr/local/vpnserver/./vpncmd /server localhost /password:Pal23174 /adminhub:$1 /cmd IpTable >> /root/temp/vpnout.txt
+cat /root/temp/vpnout.txt | grep "Session Name|" >> /root/temp/file1.txt
+sed -i -e "s/\Session Name|//" /root/temp/file1.txt
+cat /root/temp/vpnout.txt | grep "IP Address  |" >> /root/temp/file2.txt
+sed -i -e "s/\IP Address  |//" /root/temp/file2.txt
+
+
+
+paste -d '\t|\t' /root/temp/file1.txt /root/temp/file2.txt > /root/activesessionstemp.txt
+cat /root/activesessionstemp.txt | grep "(DHCP)" > /root/activesessions.txt
+sed -i -e "s/(DHCP)//" /root/activesessions.txt
+
+
+ARCHIVO=/root/activesessions.txt
+
+
+if [ -s $ARCHIVO ] ; then
+
+
+        while read LINE
+                do
+                SESSIONID=`echo "$LINE" | grep -oE "SID-[a-Z]*\-[0-9]*"`
+                #IPVPN=`echo "$LINE" | grep -oE "\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b"`
+                /usr/local/vpnserver/./vpncmd /server localhost /password:Pal23174 /adminhub:$1 /cmd SessionGet $SESSIONID >> /root/temp/sessioninfo.txt
+                cat /root/temp/sessioninfo.txt | grep "Client IP Address  (Reported)" > /root/temp/sessioninfo2.txt
+                sed -i -e "s/\Client IP Address  (Reported)//" /root/temp/sessioninfo2.txt
+        done < $ARCHIVO
+
+
+        ARCHIVO=/root/temp/sessioninfo2.txt
+        while read LINE
+                do
+                IPSRC=`echo "$LINE" | grep -oE "\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b"`
+                echo $IPSRC >> /root/temp/file3.txt
+        done < $ARCHIVO
+
+        paste -d '\t|\t' /root/activesessions.txt /root/temp/file3.txt > /root/final2.txt
+
+        while read sid ipvpn ip
+        do
+                echo -e "{\"sid\":\""$sid"\", \"ipvpn\":\""$ipvpn"\", \"ip\":\""$ip"\"}" >> out.json
+        done < /root/final2.txt
+
+        mv out.json sesiones.json
+        rm /root/activesessionstemp.txt
+        #rm /root/activesessions.txt
+        rm /root/final2.txt
+        rm -r /root/temp
+
+else
+
+        echo "Sin sesiones" 
+        exit 1
+fi

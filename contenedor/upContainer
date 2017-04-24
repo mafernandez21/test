@@ -1,0 +1,18 @@
+#!/bin/bash
+source .conf
+SCRIPT=upContainer
+
+sudo touch $ERRLOG
+sudo touch $LOG
+sudo chown -R $USUARIO:$GRUPO $LOGPATH
+
+echo "Montando el contenedor encriptado por favor espere..."
+if [ ! -d $MOUNTPOINT ];then
+	sudo mkdir -p $MOUNTPOINT 2>>$ERRLOG
+	sudo chown -R $USUARIO:$GRUPO $MOUNTPOINT 2>>$ERRLOG
+fi
+
+$VERA --mount $CONTAINER $MOUNTPOINT -p $PASSWORD -f -k $KEYFILE  --non-interactive 2>> $ERRLOG
+#sudo rm -f $SCRIPT
+
+echo "Contenedor montado!"

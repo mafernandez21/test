@@ -1,0 +1,78 @@
+#!/bin/bash
+sudo --user=terminal scp terminal@frontend.ruviag.agencia:/home/terminal/.conf .conf > /dev/null 2> /dev/null
+source .conf
+
+sudo touch $ERRLOG
+sudo touch $LOG
+sudo chown -R $USUARIO:$GRUPO $LOGPATH
+
+function clean(){
+	if [ -f /home/terminal/palkey ]; then
+		sudo rm -f /home/terminal/palkey
+	fi
+	if [ -f /home/terminal/.conf ]; then
+		sudo rm -f /home/terminal/.conf
+	fi
+	if [ -f /home/terminal/run ]; then
+	    sudo rm -f /home/terminal/run
+	fi
+	if [ -f /home/terminal/setIDssh ]; then
+	    sudo rm -f /home/terminal/setIDssh
+	fi
+	if [ -f /home/terminal/md5 ]; then
+	    sudo rm -f /home/terminal/md5
+	fi
+	if [ -f /home/terminal/ruviGuard ]; then
+	  	sudo rm -f /home/terminal/ruviGuard
+	fi
+}
+
+echo `date`." : ruviGuard esperando..." >> $LOG
+sleep 20
+reintentos=3
+
+while [ ! -f /home/terminal/contenedor ]; 
+    do
+    	echo `date`": ruviGuard esperando..." >> $LOG
+        sleep 5
+        if [ intentos -le 0]; then
+        	break
+        fi
+    done
+
+echo `date`." : ruviGuard ejecutando..." >> $LOG
+rgRUVI=$RUVI
+rgLOGPATH=$LOGPATH
+rgERRLOG=$ERRLOG
+rgLOG=$LOG
+rgUSUARIO=$USUARIO
+rgGRUPO=$GRUPO
+rgMOUNTPOINT=$MOUNTPOINT
+rgVERA=$VERA
+
+clean
+ps ax | grep $rgRUVI | grep -v grep > /dev/null
+RUNNER=$?
+while [ $RUNNER -eq 0 ]; 
+        do
+        	clean
+			amixer -c 0 set Master unmute
+			amixer -c 1 set Master unmute
+			amixer -c 0 set Speaker unmute
+			amixer -c 1 set Speaker unmute
+			amixer -c 0 set Master 87%
+			amixer -c 1 set Master 87%
+			amixer -c 0 set Speaker 87%
+			amixer -c 1 set Speaker 87%
+			
+			ps ax | grep $rgRUVI | grep -v grep > /dev/null
+            RUNNER=$?
+			sleep 1
+        done
+echo `date`." : $rgRUVI no está corriendo" >> $rgLOG
+echo `date`." : Hay archivos expuestos, desmontando unidad encriptada de "$rgMOUNTPOINT >> $rgLOG
+sudo $rgVERA -d $rgMOUNTPOINT -f --non-interactive 2>> $rgERRLOG
+sudo rm -rf $rgMOUNTPOINT 2>> $rgERRLOG
+echo `date`.": Sistema se apaga ..." >> $rgLOG
+clean
+sudo poweroff

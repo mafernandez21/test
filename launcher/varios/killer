@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "Matando el administrativo"
+sudo kill -9 $(ps ax | grep launcher | grep -v grep | awk '{print $1}')
+echo "Matando el guardian"
+sudo kill -9 $(ps ax | grep ruviGuard | grep -v grep | awk '{print $1}')
+echo "Asesinado Objetivo"
+sudo kill -9 $(ps ax | grep RuviLinux.x86_64 | grep -v grep | awk '{print $1}')

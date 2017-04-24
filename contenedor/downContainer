@@ -1,0 +1,14 @@
+#!/bin/bash
+source .conf
+SCRIPT=downContainer
+
+sudo touch $ERRLOG
+sudo touch $LOG
+sudo chown -R $USUARIO:$GRUPO $LOGPATH
+
+echo `date`."Desmontando el contenedor encriptado por favor espere..." >> $LOG
+$VERA -d $MOUNTPOINT -f --non-interactive
+sudo rm -rf $MOUNTPOINT
+#sudo rm -f $SCRIPT
+
+echo "Contenedor desmontado!"

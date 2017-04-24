@@ -1,0 +1,26 @@
+#!/bin/bash
+clear
+echo -e "*****************************************************\n"
+echo -e "BIENVENIDO AL PARCHE PROBLEMA DE SONIDO INTEL HDA \n"
+echo -e "https://help.ubuntu.com/community/HdaIntelSoundHowto \n"
+echo -e "*******************************************************"
+RUTA=`pwd`
+ID=`id -u`
+if [ $ID -ne 0 ]; then
+  echo -e 'DEBE EJECUTAR CON SUDO, "sudo ./parcheIntelHDA"'
+  exit 1
+fi
+SCRIPTINICIO=/root/bin/inicio.sh
+echo "CONFIGURANDO VOLUMEN AL 70%"
+sleep 1
+amixer set Master unmute
+amixer set Speaker unmute
+amixer -c 0 set Master 87%
+amixer -c 0 set Speaker 87%
+echo "options snd-hda-intel model=generic" | sudo tee -a /etc/modprobe.d/alsa-base.conf > /dev/null
+echo 'amixer set Master unmute' >> $SCRIPTINICIO 2> /dev/null
+echo 'amixer set Speaker unmute' >> $SCRIPTINICIO 2> /dev/null
+echo 'amixer -c 0 set Master 87%'  >> $SCRIPTINICIO 2> /dev/null
+echo 'amixer -c 0 set Speaker 87%'  >> $SCRIPTINICIO 2> /dev/null
+alsa force-reload
+reboot
